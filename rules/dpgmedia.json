@@ -199,7 +199,7 @@
                             "selector": "#pg-modal #pg-second-layer #pg-footer #pg-reject-btn"
                         },
                         "parent": {
-                            "selector": "#pg-host-shadow-root"
+                            "selector": "#pg-shadow-host-dom"
                         }
                     }
                 },
