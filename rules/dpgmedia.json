@@ -1,16 +1,19 @@
 {
   "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
   "dpgmedia": {
+    "domains": [
+      "myprivacy.dpgmedia.nl",
+      "myprivacy.dpgmedia.be",
+      "www.dpgmediagroup.com",
+      "myprivacy.dpgmediagroup.net"
+    ],
     "detectors": [
       {
         "presentMatcher": [
           {
             "type": "css",
             "target": {
-              "selector": "#pg-modal"
-            },
-            "parent": {
-              "selector": "#pg-host-shadow-root"
+              "selector": "#pg-shadow-host-dom"
             }
           }
         ],
@@ -18,10 +21,10 @@
           {
             "type": "css",
             "target": {
-              "selector": "#pg-modal"
+              "selector": "#pg-first-layer"
             },
             "parent": {
-              "selector": "#pg-host-shadow-root"
+              "selector": "#pg-shadow-host-dom"
             }
           }
         ]
@@ -36,25 +39,8 @@
             "selector": "button#pg-configure-btn"
           },
           "parent": {
-            "selector": "#pg-host-shadow-root"
+            "selector": "#pg-shadow-host-dom"
           }
-        }
-      },
-      {
-        "name": "DO_CONSENT",
-        "action": {
-          "type": "list",
-          "list": [
-            {
-              "type": "uncheck",
-              "target": {
-                "selector": "input[type='checkbox']"
-              },
-              "parent": {
-                "selector": "#pg-host-shadow-root"
-              }
-            }
-          ]
         }
       },
       {
@@ -62,10 +48,10 @@
         "action": {
           "type": "click",
           "target": {
-            "selector": "button#pg-save-preferences-btn"
+            "selector": "button#pg-reject-btn"
           },
           "parent": {
-            "selector": "#pg-host-shadow-root"
+            "selector": "#pg-shadow-host-dom"
           }
         }
       }
