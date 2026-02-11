@@ -1,18 +1,15 @@
 {
   "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
   "dpgmedia": {
-    "domains": [
-      "myprivacy.dpgmedia.nl",
-      "myprivacy.dpgmedia.be",
-      "www.dpgmediagroup.com",
-      "myprivacy.dpgmediagroup.net"
-    ],
     "detectors": [
       {
         "presentMatcher": [
           {
             "type": "css",
             "target": {
+              "selector": "#pg-modal"
+            },
+            "parent": {
               "selector": "#pg-host-shadow-root"
             }
           }
@@ -21,6 +18,9 @@
           {
             "type": "css",
             "target": {
+              "selector": "#pg-modal"
+            },
+            "parent": {
               "selector": "#pg-host-shadow-root"
             }
           }
@@ -42,18 +42,20 @@
       },
       {
         "name": "DO_CONSENT",
-        "consents": [
-          {
-            "type": "checkbox",
-            "target": {
-              "selector": "[id^='purpose-row-'] input[type='checkbox']"
-            },
-            "parent": {
-              "selector": "#pg-host-shadow-root"
-            },
-            "value": false
-          }
-        ]
+        "action": {
+          "type": "list",
+          "list": [
+            {
+              "type": "uncheck",
+              "target": {
+                "selector": "input[type='checkbox']"
+              },
+              "parent": {
+                "selector": "#pg-host-shadow-root"
+              }
+            }
+          ]
+        }
       },
       {
         "name": "SAVE_CONSENT",
