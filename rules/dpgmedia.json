@@ -1,18 +1,15 @@
 {
   "$schema": "https://raw.githubusercontent.com/cavi-au/Consent-O-Matic/master/rules.schema.json",
   "dpgmedia": {
-    "domains": [
-      "myprivacy.dpgmedia.nl",
-      "myprivacy.dpgmedia.be",
-      "www.dpgmediagroup.com",
-      "myprivacy.dpgmediagroup.net"
-    ],
     "detectors": [
       {
         "presentMatcher": [
           {
             "type": "css",
             "target": {
+              "selector": "#pg-modal"
+            },
+            "parent": {
               "selector": "#pg-shadow-host-dom"
             }
           }
@@ -21,7 +18,7 @@
           {
             "type": "css",
             "target": {
-              "selector": "#pg-first-layer"
+              "selector": "#pg-modal"
             },
             "parent": {
               "selector": "#pg-shadow-host-dom"
@@ -36,7 +33,7 @@
         "action": {
           "type": "click",
           "target": {
-            "selector": "button#pg-configure-btn"
+            "selector": "#pg-configure-btn"
           },
           "parent": {
             "selector": "#pg-shadow-host-dom"
@@ -48,7 +45,7 @@
         "action": {
           "type": "click",
           "target": {
-            "selector": "button#pg-reject-btn"
+            "selector": "#pg-reject-btn"
           },
           "parent": {
             "selector": "#pg-shadow-host-dom"
